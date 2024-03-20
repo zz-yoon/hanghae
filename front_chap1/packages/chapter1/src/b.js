@@ -34,7 +34,9 @@ class HardWork {
 
   do() {
     for (let i = 0; i < this._tasks.length; i++) {
-      this._tasks[i]();
+      setTimeout(() => {
+        this._tasks[i](); //1. 각 task 를 실행하고
+    }, 1000 * i); // 2. task지연 task 1초 * i번쨰 후에 실행 
     }
   }
 

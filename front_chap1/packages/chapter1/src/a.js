@@ -23,7 +23,7 @@ function Worker (health) {
 }
 
 function JuniorEngineer(health, intelligence) {
-  this._super(health);
+  this._super(health); // 부모클래스의 생성자를 실행하려고 하는 부분인데 부모가 누군지 모름? 어떻게 알지? 
   this._intelligence = intelligence ?? 1;
   if (this._intelligence > 10) {
     this._isBornGenius = true;
@@ -33,7 +33,33 @@ function JuniorEngineer(health, intelligence) {
 
 // 여기에 코드를 작성하세요
 // TO-DO
-//- 여기에 코드를 작성하세요
+//getHealth 생성자함수 선언
+Worker.prototype.getHealth = function () { 
+  return this._health; 
+}
+//work 생성자함수 선언 
+Worker.prototype.work = function () { 
+  this._health--;
+}
+//자식 객체 프로토타입 -> 부모 객체 설정
+JuniorEngineer.prototype = Object.create(Worker.prototype); //prototype chaining
+console.log(JuniorEngineer.prototype);
+console.log(JuniorEngineer.prototype.constructor); 
+JuniorEngineer.prototype.constructor = JuniorEngineer;
+JuniorEngineer.prototype._super = Worker;
+JuniorEngineer.prototype.work = function () { 
+  this._health--;
+  // Worker.prototype.work.call(health); // 부모 클래스의 work 메서드 호출
+  // console.log(Worker.prototype.work.call(health));
+  this._intelligence++;
+}
+JuniorEngineer.prototype.getIntelligence = function () {
+  return this._intelligence;
+}
+JuniorEngineer.prototype._isBornGenius = function () { 
+  return this._isBornGenius;
+}
+//- 여기에 코드를 작성하세요  
 
 
 
