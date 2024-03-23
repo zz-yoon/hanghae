@@ -16,11 +16,11 @@ export function createElement(node) {
   // jsx를 dom으로 변환
   const element = document.createElement(node.type);
 
-  // if (node.props) { 
-  //   for (const [key, value] of Object.entries(node.props)) { 
-  //     element.setAttribute(key, value);
-  //   }
-  // } 
+  if (node.props) { 
+    for (const [key, value] of Object.entries(node.props)) { 
+      element.setAttribute(key, value);
+    }
+  } 
 
   if (node.children) { 
     //  console.log(node.children);

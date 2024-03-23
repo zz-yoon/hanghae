@@ -16,18 +16,18 @@ describe('render > ', () => {
       expect($root.innerHTML).toBe(`<div>div의 children 입니다.</div>`);
     })
 
-  //   test('props를 추가할 수 있다.', () => {
-  //     const App = jsx(
-  //       'div',
-  //       { id: 'test-id', class: 'test-class' },
-  //       'div의 children 입니다.'
-  //     );
+    test('props를 추가할 수 있다.', () => {
+      const App = jsx(
+        'div',
+        { id: 'test-id', class: 'test-class' },
+        'div의 children 입니다.'
+      );
 
-  //     const $root = document.createElement('div');
-  //     render($root, App);
+      const $root = document.createElement('div');
+      render($root, App);
 
-  //     expect($root.innerHTML).toBe(`<div id="test-id" class="test-class">div의 children 입니다.</div>`);
-  //   })
+      expect($root.innerHTML).toBe(`<div id="test-id" class="test-class">div의 children 입니다.</div>`);
+    })
 
   //   test('자식 노드를 표현할 수 있다.', () => {
   //     const App = jsx(
