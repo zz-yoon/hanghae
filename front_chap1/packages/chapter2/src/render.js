@@ -17,6 +17,7 @@ export function createElement(node) {
   const element = document.createElement(node.type);
 
   if (node.props) { 
+    console.log(node.props);
     for (const [key, value] of Object.entries(node.props)) { 
       element.setAttribute(key, value);
     }
