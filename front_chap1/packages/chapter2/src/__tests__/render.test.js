@@ -108,4 +108,4 @@ describe('render > ', () => {
   //     expect(children[1]).toBe(newChildren[1]);
   //   })
    })
-})
+
