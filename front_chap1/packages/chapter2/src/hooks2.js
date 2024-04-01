@@ -30,6 +30,7 @@ export function createHooks(callback) {
 
       if (!isRendering) {
         isRendering = true;
+        
         requestAnimationFrame(() => {
           callback(); 
           isRendering = false;
